@@ -240,7 +240,6 @@
   margin-right: auto;
 }
 
-/* Grid: 4 columns, slightly more compact gap for closer match */
 .cards.cards19 > ul {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -267,7 +266,7 @@
 .cards.cards19 > ul > li {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* Top-align icon and text */
+  align-items: flex-start;
   background: none;
   border: none;
   box-shadow: none;
@@ -275,13 +274,11 @@
   min-width: 0;
 }
 
-/* Remove margin/padding from card body containers */
 .cards.cards19 > ul > li .cards-card-body {
   margin: 0;
   padding: 0;
 }
 
-/* Icon container: fixed width, top-aligned, tight gap */
 .cards.cards19 > ul > li .cards-card-body:first-child {
   flex: 0 0 32px;
   display: flex;
@@ -290,7 +287,6 @@
   margin: 0 10px 0 0;
 }
 
-/* Icon image: 24px, top-aligned with first line of text, baseline fix */
 .cards.cards19 > ul > li .cards-card-body:first-child img {
   display: block;
   width: 24px;
@@ -301,14 +297,12 @@
   line-height: 1;
 }
 
-/* Text container: block so text aligns to top naturally */
 .cards.cards19 > ul > li .cards-card-body:last-child {
   flex: 1 1 0%;
   display: block;
   min-width: 0;
 }
 
-/* Text: Slightly bolder and wider for match */
 .cards.cards19 > ul > li .cards-card-body:last-child p {
   margin: 0;
   font-size: 13px;
@@ -318,6 +312,139 @@
   text-align: left;
   max-width: 240px;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   vertical-align: top;
+}
+
+
+.cards.cards21 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  min-height: 600px;
+  background: transparent;
+}
+
+.cards.cards21 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards21 > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background: transparent;
+  border: none;
+  min-width: 390px;
+  min-height: 360px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Restore collage image and stacking by using a border/background only */
+.cards.cards21 .cards-card-image {
+  position: relative;
+  z-index: 2;
+  width: 350px;
+  height: 350px;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow:
+    18px 24px 0 0 #fff,
+    22px 28px 0 0 #000,
+    0 4px 24px rgb(0 0 0 / 10%);
+  transform: rotate(-8deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.cards.cards21 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Overlap card more tightly so it cuts into the image */
+.cards.cards21 .cards-card-body {
+  position: absolute;
+  left: 120px;
+  bottom: 104px;
+  min-width: 205px;
+  max-width: 290px;
+  z-index: 3;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 13%);
+  padding: 1em 1.4em;
+  transform: rotate(-16deg);
+  font-family: Montserrat, Arial, sans-serif;
+  pointer-events: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards21 {
+    min-height: 0;
+    padding: 32px 0;
+  }
+
+  .cards.cards21 > ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards.cards21 > ul > li {
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    width: 94vw;
+    align-items: center;
+  }
+
+  .cards.cards21 .cards-card-image {
+    width: 88vw;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+    box-shadow:
+      10px 14px 0 0 #fff,
+      14px 18px 0 0 #000,
+      0 2px 8px rgb(0 0 0 / 10%);
+    transform: rotate(-7deg);
+  }
+
+  .cards.cards21 .cards-card-body {
+    position: static;
+    transform: rotate(-8deg);
+    margin: 1em auto 0;
+    max-width: 92vw;
+    min-width: 0;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 10%);
+  }
+}
+
+.cards.cards21 .cards-card-body p {
+  margin: 0;
+  font-size: 1.09em;
+  color: #757575;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1.5;
 }
