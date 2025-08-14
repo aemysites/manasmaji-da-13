@@ -757,7 +757,6 @@
   background: none;
 }
 
-/* Image background: make first div fill the block */
 .hero.hero39 > div:first-child {
   position: absolute;
   inset: 0;
@@ -776,7 +775,6 @@
   display: block;
 }
 
-/* Subtle gradient overlay for legibility */
 .hero.hero39 > div:first-child::after {
   display: block;
   position: absolute;
@@ -789,7 +787,6 @@
   content: "";
 }
 
-/* Content overlay: move up and in from left, widen container, tweak vertical rhythm */
 .hero.hero39 > div:last-child {
   position: relative;
   z-index: 3;
@@ -801,7 +798,7 @@
   height: 100vh;
   width: 100vw;
   pointer-events: auto;
-  padding: 13vh 0 0 9vw; /* more top, more left, less bottom */
+  padding: 13vh 0 0 9vw;
   box-sizing: border-box;
 }
 
@@ -809,13 +806,13 @@
   display: flex;
   flex-direction: column;
   gap: 2.3rem;
-  max-width: 46ch; /* wider for less wrapping */
+  max-width: 46ch;
 }
 
 .hero.hero39 h1 {
   font-family: Montserrat, var(--heading-font-family), sans-serif;
   font-size: 4rem;
-  line-height: 1.07; /* slightly roomier vertical rhythm */
+  line-height: 1.07;
   font-weight: 700;
   color: #fff;
   letter-spacing: 0.01em;
@@ -859,7 +856,6 @@
   border-color: #fff;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero39 > div:last-child {
     padding: 7vw 6vw 10vw;
@@ -880,5 +876,210 @@
   .hero.hero39 p:not(.button-container) {
     font-size: 1rem;
     max-width: 91vw;
+  }
+}
+
+
+.hero.hero20 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+}
+
+/* Collage/single image grid background */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero20 > div:first-child > div,
+.hero.hero20 > div:first-child > div > p {
+  display: contents;
+}
+
+.hero.hero20 > div:first-child picture,
+.hero.hero20 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-row: span 1;
+  grid-column: span 1;
+  display: block;
+  pointer-events: none;
+}
+
+/* Overlay for improved contrast */
+.hero.hero20::before {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 28%);
+  z-index: 2;
+}
+
+/* Absolutely centered overlay content, with upward offset */
+.hero.hero20 > div:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: auto;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: auto;
+  transform: translate(-50%, -48%);
+  padding: 0;
+}
+
+/* Compact, centered content block */
+.hero.hero20 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+  margin: 0;
+  padding: 0 2vw;
+}
+
+/* Heading styling: bold, compact, centered */
+.hero.hero20 h1 {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  line-height: 1.08;
+  margin: 0 0 1.1rem;
+  text-align: center;
+  max-width: 440px;
+  word-wrap: break-word;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 15%);
+}
+
+/* Supporting text: high-contrast, centered, with dark translucent bg for readability */
+.hero.hero20 p:not(:last-of-type) {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 1.1rem;
+  margin-top: 0;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  max-width: 440px;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  background: rgb(0 0 0 / 18%);
+  border-radius: 6px;
+  padding: 0.7em 1em;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+/* Button row: horizontally centered, spaced */
+.hero.hero20 p:last-of-type {
+  display: flex;
+  flex-direction: row;
+  gap: 1.3rem;
+  justify-content: center;
+  margin-top: 1.4rem;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.hero.hero20 p:last-of-type a {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 1.07rem;
+  font-weight: 500;
+  padding: 0.72em 1.9em;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 9%);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  margin: 0;
+  line-height: 1.2;
+  min-width: 0;
+  display: inline-block;
+}
+
+.hero.hero20 p:last-of-type a:first-child {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.hero.hero20 p:last-of-type a:last-child {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.hero.hero20 p:last-of-type a:hover,
+.hero.hero20 p:last-of-type a:focus {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* Remove backgrounds from overlay containers */
+.hero.hero20 > div:last-child,
+.hero.hero20 > div:last-child > div {
+  background: none;
+}
+
+/* Responsive adjustments: stack, adjust font, maintain center */
+@media (width <= 900px) {
+  .hero.hero20 > div:first-child {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .hero.hero20 > div:last-child {
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -52%);
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    padding: 0;
+  }
+
+  .hero.hero20 > div:last-child > div {
+    max-width: 96vw;
+    width: 96vw;
+    align-items: center;
+    text-align: center;
+    padding: 2.2rem 1rem;
+  }
+
+  .hero.hero20 h1 {
+    font-size: 1.25rem;
+    text-align: center;
+    max-width: 98vw;
+  }
+
+  .hero.hero20 p:not(:last-of-type),
+  .hero.hero20 p:last-of-type {
+    text-align: center;
+    justify-content: center;
+    max-width: 98vw;
   }
 }
