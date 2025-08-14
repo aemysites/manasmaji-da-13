@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,155 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  min-height: min(680px, 75vh);
+  width: 100%;
+  background: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero5 > div {
+  flex: 1 1 50%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  padding: 0;
+}
+
+.hero.hero5 > div:first-child {
+  order: 2;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0;
+  background: none;
+}
+
+.hero.hero5 > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+.hero.hero5 picture,
+.hero.hero5 img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+}
+
+/* Left/text side */
+.hero.hero5 > div:last-child {
+  order: 1;
+  background: #fff;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  /* Top, Right, Bottom, Left */
+  padding: 4vw 2vw 0 6vw;
+  min-height: 0;
+  min-width: 0;
+}
+
+.hero.hero5 > div:last-child > div {
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.hero.hero5 h2 {
+  color: #111;
+  font-family: var(--heading-font-family);
+  font-size: clamp(2.2rem, 2.8vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0 0 1.2rem;
+  line-height: 1.08;
+}
+
+.hero.hero5 p:not(.button-container) {
+  color: #3c3c3c;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  margin: 0 0 1.4rem;
+  font-weight: 400;
+}
+
+.hero.hero5 .button-container {
+  display: flex;
+  gap: 1.2rem;
+  margin: 0;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button {
+  background: #fff;
+  border: 1.5px solid #000;
+  color: #000;
+  border-radius: 2em;
+  padding: 0.7em 2.2em;
+  font-size: 1.05rem;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 1.28;
+  text-transform: none;
+  box-shadow: none;
+  margin: 0;
+  min-width: 0;
+  transition: background 0.18s, color 0.18s;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero-container > .hero-wrapper > .block.hero .button:focus {
+  background: #000;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .hero.hero5 > div {
+    min-height: 240px;
+    min-width: 0;
+    width: 100%;
+    flex: unset;
+  }
+
+  .hero.hero5 > div:first-child,
+  .hero.hero5 > div:last-child {
+    order: unset;
+    padding: 0;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .hero.hero5 > div:last-child {
+    padding: 7vw 5vw 4vw;
+    background: #fff;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .hero.hero5 > div:last-child > div {
+    max-width: 100%;
   }
 }
