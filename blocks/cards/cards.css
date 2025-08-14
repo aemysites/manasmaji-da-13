@@ -349,7 +349,6 @@
   margin: 0;
 }
 
-/* Restore collage image and stacking by using a border/background only */
 .cards.cards21 .cards-card-image {
   position: relative;
   z-index: 2;
@@ -381,7 +380,6 @@
   z-index: 2;
 }
 
-/* Overlap card more tightly so it cuts into the image */
 .cards.cards21 .cards-card-body {
   position: absolute;
   left: 120px;
@@ -447,4 +445,178 @@
   font-weight: 500;
   font-family: inherit;
   line-height: 1.5;
+}
+
+
+.cards.cards23 {
+  background: #f9f9f9;
+  padding: 32px;
+  border-radius: 32px;
+}
+
+.cards.cards23 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 32px;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* All cards: base card styling */
+.cards.cards23 > ul > li {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  border: none;
+  transition: box-shadow .2s;
+}
+
+/* IMAGE CARDS (1st, 3rd, 4th) */
+.cards.cards23 > ul > li:nth-child(1),
+.cards.cards23 > ul > li:nth-child(3),
+.cards.cards23 > ul > li:nth-child(4) {
+  border: none;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 9%);
+}
+
+.cards.cards23 > ul > li:nth-child(1) .cards-card-image,
+.cards.cards23 > ul > li:nth-child(3) .cards-card-image,
+.cards.cards23 > ul > li:nth-child(4) .cards-card-image {
+  display: block;
+}
+
+.cards.cards23 > ul > li:nth-child(1) .cards-card-body,
+.cards.cards23 > ul > li:nth-child(3) .cards-card-body,
+.cards.cards23 > ul > li:nth-child(4) .cards-card-body {
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1 1 auto;
+}
+
+.cards.cards23 > ul > li:nth-child(1) .cards-card-body h3,
+.cards.cards23 > ul > li:nth-child(3) .cards-card-body h3,
+.cards.cards23 > ul > li:nth-child(4) .cards-card-body h3 {
+  text-align: left;
+}
+
+.cards.cards23 > ul > li:nth-child(1) .cards-card-body p,
+.cards.cards23 > ul > li:nth-child(3) .cards-card-body p,
+.cards.cards23 > ul > li:nth-child(4) .cards-card-body p {
+  text-align: left;
+}
+
+/* TEXT-ONLY CENTERED CARD (2nd) */
+.cards.cards23 > ul > li:nth-child(2) {
+  border: 1.5px solid #202020;
+  box-shadow: none;
+  background: #fff;
+  min-height: 320px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
+.cards.cards23 > ul > li:nth-child(2) .cards-card-image {
+  display: none;
+}
+
+.cards.cards23 > ul > li:nth-child(2) .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  padding: 40px 24px 32px;
+}
+
+.cards.cards23 > ul > li:nth-child(2) .cards-card-body h3,
+.cards.cards23 > ul > li:nth-child(2) .cards-card-body p {
+  text-align: center;
+}
+
+/* IMAGE BLOCK LAYOUT */
+.cards.cards23 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.cards.cards23 .cards-card-image img,
+.cards.cards23 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* CARD BODY BASE */
+.cards.cards23 .cards-card-body {
+  padding: 28px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.cards.cards23 .cards-card-body h3 {
+  margin: 0 0 8px;
+  font-family: Montserrat, var(--heading-font-family), sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #202020;
+  line-height: 1.2;
+}
+
+.cards.cards23 .cards-card-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #606060;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .cards.cards23 {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cards.cards23 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .cards.cards23 > ul > li {
+    border-radius: 16px;
+    min-height: 200px;
+  }
+
+  .cards.cards23 .cards-card-image {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .cards.cards23 > ul > li:nth-child(2) {
+    min-height: 180px;
+  }
 }
