@@ -630,7 +630,6 @@
   justify-content: flex-start;
 }
 
-/* Make the second child a flex row: text left, button right */
 .hero.hero35 > div:nth-child(2) > div {
   display: flex;
   flex-direction: row;
@@ -640,7 +639,6 @@
   width: 100%;
 }
 
-/* Left column: text stack */
 .hero.hero35 > div:nth-child(2) > div > h2,
 .hero.hero35 > div:nth-child(2) > div > p:not(.button-container) {
   text-align: left;
@@ -666,8 +664,6 @@
   margin: 0 0 1.2em;
   line-height: 1.4;
 }
-
-/* Group the headline/subtitle together for left column */
 
 .hero.hero35 > div:nth-child(2) > div > .button-container {
   flex: 0 0 340px;
@@ -708,7 +704,6 @@
   outline: none;
 }
 
-/* Responsive stacking for small screens */
 @media (width <= 900px) {
   .hero.hero35 {
     flex-direction: column;
@@ -740,7 +735,6 @@
   }
 }
 
-/* Slight font/size adjustment for extra small screens */
 @media (width <= 600px) {
   .hero.hero35 {
     padding: 8vw 2vw;
@@ -748,5 +742,143 @@
 
   .hero.hero35 > div:nth-child(2) > div > h2 {
     font-size: 1.1em;
+  }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/* Image background: make first div fill the block */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero.hero39 > div:first-child picture,
+.hero.hero39 > div:first-child img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Subtle gradient overlay for legibility */
+.hero.hero39 > div:first-child::after {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(0 0 0 / 47%) 0%, rgb(0 0 0 / 7%) 50%, rgb(0 0 0 / 0%) 100%);
+  z-index: 2;
+  content: "";
+}
+
+/* Content overlay: move up and in from left, widen container, tweak vertical rhythm */
+.hero.hero39 > div:last-child {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: auto;
+  padding: 13vh 0 0 9vw; /* more top, more left, less bottom */
+  box-sizing: border-box;
+}
+
+.hero.hero39 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+  max-width: 46ch; /* wider for less wrapping */
+}
+
+.hero.hero39 h1 {
+  font-family: Montserrat, var(--heading-font-family), sans-serif;
+  font-size: 4rem;
+  line-height: 1.07; /* slightly roomier vertical rhythm */
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 30ch;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 21%);
+}
+
+.hero.hero39 p:not(.button-container) {
+  font-size: 1.17rem;
+  color: #d6d6d6;
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--body-font-family);
+  text-shadow: 0 1px 5px rgb(0 0 0 / 15%);
+}
+
+.hero.hero39 .button-container {
+  margin: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero39 .button {
+  background: transparent;
+  border: 2px solid #d6d6d6;
+  color: #fff;
+  border-radius: 2em;
+  padding: 0.7em 2em;
+  font-size: 1.05rem;
+  font-family: inherit;
+  font-weight: 400;
+  box-shadow: none;
+  margin: 0;
+  min-width: 0;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero39 .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero39 .button:focus {
+  background: #fff;
+  color: #222;
+  border-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero39 > div:last-child {
+    padding: 7vw 6vw 10vw;
+    min-height: 50vh;
+    height: auto;
+  }
+
+  .hero.hero39 > div:last-child > div {
+    max-width: 92vw;
+    gap: 1.4rem;
+  }
+
+  .hero.hero39 h1 {
+    font-size: 2.2rem;
+    max-width: 92vw;
+  }
+
+  .hero.hero39 p:not(.button-container) {
+    font-size: 1rem;
+    max-width: 91vw;
   }
 }
