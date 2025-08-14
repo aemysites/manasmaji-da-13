@@ -1,10 +1,15 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
-  border: 1px solid #dadada;
+  border: none;
+  border-bottom: 1px solid #e0e0de;
+  background: #f8f8f6;
+  margin: 0;
+  width: 100%;
+  display: block;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 .accordion details p {
@@ -59,3 +64,114 @@
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
 }
+
+
+.accordion {
+  background: #f8f8f6;
+  font-family: var(--body-font-family);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking at top */
+  align-items: stretch;    /* Prevent centering, make rows full width */
+}
+
+/* Remove default margin/padding/centering from parent wrappers */
+.accordion-wrapper, .accordion.block {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Use only bottom border for divider */
+
+/* Remove last item divider */
+.accordion details:last-child {
+  border-bottom: none;
+}
+
+/* Summary row: flex row for text and chevron, compact/tight padding */
+.accordion details > summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 20px 6px 16px;
+  min-height: 36px;
+  cursor: pointer;
+  outline: none;
+  background: #f8f8f6;
+  font-size: 14px;
+  color: #393939;
+  font-weight: 400;
+  border: none;
+  margin: 0;
+  line-height: 1.5;
+  position: relative;
+  transition: background 0.2s;
+  list-style: none;
+  user-select: none;
+}
+
+/* Remove default marker */
+.accordion details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Left text: take max available space */
+.accordion details > summary p {
+  color: #393939;
+  font-size: 14px;
+  margin: 0;
+  flex: 1 1 auto;
+  text-align: left;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chevron: true downward caret (V shape), smaller, tighter, closer to edge */
+.accordion details > summary::after {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
+  border-left: 2px solid #393939;
+  border-top: 2px solid #393939;
+  vertical-align: middle;
+  transition: transform 0.2s;
+
+  /* Downward caret (V shape) */
+  transform: rotate(-45deg);
+  position: relative;
+  right: -2px;
+  flex-shrink: 0;
+  background: none;
+}
+
+/* Chevron rotates up when open */
+.accordion details[open] > summary::after {
+  transform: rotate(135deg);
+}
+
+/* Row hover/focus highlight */
+.accordion details > summary:hover,
+.accordion details > summary:focus {
+  background: #f2f2f0;
+}
+
+/* Accordion body (hidden by default) */
+.accordion details > .accordion-item-body {
+  padding: 0 16px 8px;
+  font-size: 14px;
+  color: #393939;
+  background: #f8f8f6;
+}
+
+/* Prevent extra whitespace between rows */
