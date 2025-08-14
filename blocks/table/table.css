@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +51,84 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
-.table.block.no-header table tbody tr {
-  border-top: 1px solid;
-}
-
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
 .table.block.bordered table th,
 .table.block.bordered table td {
   border: 1px solid;
+}
+
+
+.table.no-header table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+}
+
+.table.no-header table thead {
+  display: none;
+}
+
+/* Use grid for two columns with more space for answer, slightly tighter question */
+.table.no-header table tbody tr td {
+  display: grid;
+  grid-template-columns: 36% 64%;
+  align-items: center;
+  padding: 0.32em 0;
+  border: none;
+  border-bottom: 1px solid #d9d9d9;
+  background: #fff;
+  column-gap: 2.5vw;
+}
+
+.table.no-header table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table.no-header table tbody tr td p {
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  line-height: 1.32;
+}
+
+.table.no-header table tbody tr td p:first-child {
+  /* Question (left column) */
+  color: #666;
+  font-family: Orbitron, Exo, Arial, sans-serif;
+  font-size: 1.08em;
+  letter-spacing: 0.11em;
+  text-transform: lowercase;
+  font-weight: 400;
+  justify-self: start;
+  white-space: normal;
+}
+
+.table.no-header table tbody tr td p:nth-child(2) {
+  /* Answer (right column) */
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.98em;
+  line-height: 1.32;
+  justify-self: start;
+  max-width: 100%;
+}
+
+@media (width <= 700px) {
+  .table.no-header table tbody tr td {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35em 0;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+  }
+
+  .table.no-header table tbody tr td p:first-child,
+  .table.no-header table tbody tr td p:nth-child(2) {
+    width: 100%;
+    font-size: 1em;
+  }
 }
